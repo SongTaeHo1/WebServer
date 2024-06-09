@@ -79,6 +79,7 @@ def comment_create_answer(request, answer_id):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.author = request.user
+            comment.question = answer.question
             comment.create_date = timezone.now()
             comment.answer = answer
             comment.save()
