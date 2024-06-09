@@ -10,6 +10,7 @@ class Question(models.Model):
     modify_date = models.DateTimeField(null=True, blank=True)
     voter = models.ManyToManyField(User, related_name='voter_question')
     views = models.PositiveIntegerField(default=0)
+    modify_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.subject
